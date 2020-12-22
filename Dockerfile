@@ -24,9 +24,9 @@ RUN apt-get install gdebi-core \
 EXPOSE 8787
 
 # ssh-server
-RUN apt-get update && 
-    apt-get install -y openssh-server
-    mkdir /var/run/sshd
+RUN apt-get update \
+    && apt-get install -y openssh-server \
+    && mkdir /var/run/sshd
 
 ## set password
 RUN echo 'root:root' | chpasswd
