@@ -7,7 +7,6 @@ ENV USER_PASSWORD=user
 ENV PASSWORD=user
 
 # kggseq, plink, annovar
-RUN mkdir -p /tool/
 COPY ./tools/kggseq.jar /tools/kggseq.jar
 COPY ./tools/plink /tools/plink
 
