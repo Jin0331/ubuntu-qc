@@ -2,8 +2,9 @@ FROM sempre813/ubuntu-18.04
 MAINTAINER sempre813
 
 ENV DEBIAN_FRONTEND=noninteractive  
-ENV ROOT_PASSWORD=root
-ENV USER_PASSWORD=dblab
+ENV ROOT_PASSWORD=user
+ENV USER_PASSWORD=user
+ENV PASSWORD=user
 
 # kggseq, plink, annovar
 RUN mkdir -p /tool/
