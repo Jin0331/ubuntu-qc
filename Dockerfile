@@ -31,11 +31,6 @@ RUN apt-get update && \
 RUN useradd -m dblab && echo "dblab:${USER_PASSWORD}" | chpasswd \
     && adduser dblab sudo
 
-# ssh-server
-RUN apt-get update \
-    && apt-get install -y openssh-server \
-    && mkdir /var/run/sshd
-
 # make user .ssh
 RUN mkdir /home/dblab/.ssh
 
