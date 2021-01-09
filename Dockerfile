@@ -9,11 +9,7 @@ ENV PASSWORD=user
 # user add
 RUN apt-get update && \
       apt-get -y install sudo
-RUN useradd -rm -d /home/dblab -s /bin/bash -g root -G sudo -u 1001 dblab
-RUN echo "dblab:${USER_PASSWORD}" | chpasswd
-
-# make user .ssh
-RUN mkdir /home/dblab/.ssh
+RUN adduser --disabled-password --gecos '' dblab
 
 ## set password
 RUN echo 'root:${ROOT_PASSWORD}' | chpasswd
@@ -39,7 +35,6 @@ RUN apt-get update && apt-get install -y gdebi-core \
     && wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.3.1093-amd64.deb \
     && gdebi -n rstudio-server-1.3.1093-amd64.deb
 EXPOSE 8787
-
 
 COPY entrypoint.sh /root/entrypoint.sh
 RUN chmod 777 /root/entrypoint.sh
