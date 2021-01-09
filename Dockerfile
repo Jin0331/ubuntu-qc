@@ -30,14 +30,14 @@ RUN chmod -R 777 /tools/
 # vcftools
 RUN apt-get update && apt-get install -y vcftools
 
-# change python 3.7 
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
-
 # rstudio-server
 RUN apt-get update && apt-get install -y gdebi-core \
     && wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.3.1093-amd64.deb \
     && gdebi -n rstudio-server-1.3.1093-amd64.deb
 EXPOSE 8787
+
+# change python 3.7 
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 
 COPY entrypoint.sh /root/entrypoint.sh
 RUN chmod 777 /root/entrypoint.sh
