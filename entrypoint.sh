@@ -1,4 +1,3 @@
 #!/bin/bash
 
-/usr/sbin/sshd -D
-/bin/bash
+service ssh start && /bin/bash
